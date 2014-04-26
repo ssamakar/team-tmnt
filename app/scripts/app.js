@@ -19,6 +19,11 @@ $stateProvider
     .state('team', {
       url: "/team/:teamId",
       templateUrl: "views/team.html",
-      controller: 'TeamCtrl'
+      controller: 'TeamCtrl',
+      resolve: {
+		  team: function(TurtleService, $stateParams) {
+		    return TurtleService.getTeam($stateParams.teamId);
+		  }
+		} 
     })
 });

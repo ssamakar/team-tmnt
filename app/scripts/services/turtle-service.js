@@ -11,5 +11,15 @@ angular.module('tmntappApp')
   		    }
   		  );
   		  return deferred.promise;
-  		}}
-  });
+  		},
+  		getTeam: function(teamId) {
+  		  var deferred = $q.defer();
+
+		  $http({method: 'GET', url: 'http://tmnt.devmounta.in/team/' + teamId}).success(function(data) {
+		      deferred.resolve(data[0]);
+		  	}
+		  );  
+  		  return deferred.promise;
+  		}
+  	}
+});

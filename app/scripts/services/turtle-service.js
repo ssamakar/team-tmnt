@@ -20,6 +20,15 @@ angular.module('tmntappApp')
 		  	}
 		  );  
   		  return deferred.promise;
+  		},
+  		getCharacter: function() {
+  		  var deferred = $q.defer();
+
+		  $http({method: 'GET', url: 'http://tmnt.devmounta.in/character/' + charId}).success(function(data) {
+		      deferred.resolve(data[0]);
+		  	}
+		  );  
+  		  return deferred.promise;
   		}
   	}
 });

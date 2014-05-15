@@ -26,4 +26,15 @@ $stateProvider
 		  }
 		} 
     })
+	    .state('team.character', {
+	      url: "/character/:charid",
+	      templateUrl: "views/team.character.html",
+	      controller: 'CharacterCtrl',
+	      resolve: {
+			  character: function(TurtleService) {
+			    return TurtleService.getCharacter();
+			  }
+			} 
+	     })
+
 });
